@@ -8,6 +8,10 @@ export parallel_for
 
 global Array
 
+function backend()
+  return uppercase(JACCPreferences.backend)
+end
+
 function parallel_for(N::I, f::F, x...) where {I<:Integer,F<:Function}
   Threads.@threads :static for i in 1:N
     f(i, x...)
